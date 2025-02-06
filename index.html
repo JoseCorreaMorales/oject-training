@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle JET - Contador</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        <h2 class="oj-header-border">Contador en Oracle JET</h2>
+    <p>Valor actual: <span data-bind="text: contador"></span></p>
+    <oj-button on-oj-action="[[incrementar]]">Incrementar</oj-button>
+    </section>
+
+    <section id="panelPage">
+        <h2 class="oj-header-border">Sticky Notes</h2>
+        <div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center">
+            <div class="oj-panel oj-sm-margin-2x panel oj-sm-margin-5x oj-panel-shadow-sm">
+                <h3>Header</h3>
+                <p>Hello world!</p>
+                How is it going out there?
+            </div>
+
+            <div class="oj-panel oj-panel-alt1 oj-sm-margin-2x panel oj-panel-shadow-sm">
+                oj-panel-alt1
+            </div>
+
+            <div class="oj-panel oj-panel-alt2 oj-sm-margin-2x panel oj-panel-shadow-sm">
+                oj-panel-alt2
+            </div>
+
+            <div class="oj-panel oj-panel-alt3 oj-sm-margin-2x panel oj-panel-shadow-sm">
+                oj-panel-alt3
+            </div>
+
+            <div class="oj-panel oj-panel-alt4 oj-sm-margin-2x panel oj-panel-shadow-sm">
+                oj-panel-alt4
+            </div>
+
+            <div class="oj-panel oj-panel-alt5 oj-sm-margin-2x panel oj-panel-shadow-sm">
+                <oj-collapsible data-oj-binding-provider="none" expanded="true">
+                    <h3 slot="header">Header</h3>
+                    <div>
+                      <p>I'm a collapsible inside a panel</p>
+                      When you close the collapsible the panel will shrink.
+                    </div>
+                  </oj-collapsible>
+            </div>
+        </div>
+
+<p data-bind="text: mensaje"></p>
+
+
+        <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+        <script src="index.js"></script>
+    </section>
+
+</body>
+
+</html>
