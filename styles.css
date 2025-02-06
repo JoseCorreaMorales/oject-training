@@ -1,0 +1,19 @@
+@import url('https://static.oracle.com/cdn/jet/v7.1.0/default/css/alta/oj-alta-min.css');
+body {
+  padding: 20px;
+ /*  background-color: #ddd; */
+}
+
+.panel {
+  max-width: 18rem;
+  min-width: 10rem;
+  min-height: 10rem;
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+section {
+  height: 20vh;
+}
