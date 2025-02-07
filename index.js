@@ -1,16 +1,50 @@
-require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojcollapsible'],
-     function (ko, Bootstrap) {
+require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojcollapsible', 'jquery'],
+     function (ko, Bootstrap, $) {
     "use strict";
   
     function IndexViewModel() {
       self = this;
       this.contador = ko.observable(5); // Variable reactiva
       self.mensaje = ko.observable("Cargando...");
+      self.usuarios = ko.observableArray([]);
+      self.loadUsers = ko.observable(true);
+      self.isUsersListOpen = ko.observable(false);
+     
       this.incrementar = () => {
         self.contador(self.contador() + 1);
         console.log(self.contador());
       };
+
+      this.decrementar = () => {
+        self.contador(self.contador() - 1);
+        console.log(self.contador());
+      }
      
+
+      self.obtenerDatos = function () {
+        return fetch("https://jsonplaceholder.typicode.com/users")
+          .then(response => response.json());
+      };
+
+
+      self.cargarUsuarios = function () {
+        self.obtenerDatos().then(function (data) {
+          self.usuarios(data);
+  
+          console.log(data);
+          self.isUsersListOpen(!self.isUsersListOpen());
+        }).catch(function (err) {
+          console.log(err);
+        });
+      };
+      
+      self.cargarUsarios = function () {
+        self.cargarUsuarios();
+      };
+
+
+
+
 
 }
 ko.applyBindings(new IndexViewModel());

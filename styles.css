@@ -1,7 +1,6 @@
 @import url('https://static.oracle.com/cdn/jet/v7.1.0/default/css/alta/oj-alta-min.css');
 body {
   padding: 20px;
- /*  background-color: #ddd; */
 }
 
 .panel {
@@ -15,5 +14,25 @@ body {
 }
 
 section {
-  height: 20vh;
+ margin-bottom: 10vh;
+}
+
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+
+}
+
+.userPanel{
+  border-radius: 35rem;
+  padding: 1rem;
+  text-align: center; 
+ h3 {
+  font-size:  1.5rem;
+ }
+  p {
+    font-size: 1rem;
+  }
 }

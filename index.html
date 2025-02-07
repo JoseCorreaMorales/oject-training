@@ -13,6 +13,7 @@
         <h2 class="oj-header-border">Contador en Oracle JET</h2>
     <p>Valor actual: <span data-bind="text: contador"></span></p>
     <oj-button on-oj-action="[[incrementar]]">Incrementar</oj-button>
+    <oj-button on-oj-action="[[decrementar]]">Decrementar</oj-button>
     </section>
 
     <section id="panelPage">
@@ -51,12 +52,31 @@
             </div>
         </div>
 
-<p data-bind="text: mensaje"></p>
+<!-- <p data-bind="text: mensaje"></p> -->
+</section>
 
+
+
+
+<section>
+    <h3>Load User List</h3>
+     <oj-button on-oj-action="[[cargarUsarios]]">cargarUsarios</oj-button>
+
+     <div data-bind="css: { 'open-class': isUsersListOpen, 'closed-class': !isUsersListOpen() }">
+
+         <div class="usersContainer" data-bind="foreach: usuarios">
+             <div class="userPanel oj-panel oj-panel-alt1 oj-sm-margin-2x demo-mypanel">
+                 <h3 class="oj-header-border" data-bind="text: name"></h3>
+                 <p data-bind="text: username"></p>
+                </div>
+            </div>
+        </div>
+ </section>
+
+  
 
         <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
         <script src="index.js"></script>
-    </section>
 
 </body>
 
