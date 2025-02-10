@@ -16,16 +16,13 @@ define(['knockout'], function(ko) {
             }
         };
 
-        // Cargar usuarios
-        self.loadUsers = function() {
-            fetch("https://jsonplaceholder.typicode.com/users")
-                .then(response => response.json())
-                .then(data => {
-                    self.users(data);
-                    self.isOpen(!self.isOpen());
-                })
-                .catch(err => console.error(err));
-        };
+        // Cargar usuarios desde la API
+        self.loadUsers = async () => { 
+            const response = await fetch("https://jsonplaceholder.typicode.com/users"); 
+            const data = await response.json(); 
+            self.users(data); 
+            self.isOpen(!self.isOpen());
+        }
 
         // Observar cambios en las propiedades
         context.propertyChanged = function(event) {
