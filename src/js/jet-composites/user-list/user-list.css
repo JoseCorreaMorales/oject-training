@@ -18,3 +18,13 @@
      gap: 10px;
      padding: 20px;
 }
+
+.ok {
+     color: green;
+     border: .2rem solid #47ff57;
+}
+
+.no {
+     color: red;
+     border: .2rem solid #d32d2d;
+}

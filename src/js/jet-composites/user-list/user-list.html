@@ -10,4 +10,28 @@
             </div>
         </div>
     </div>
+
+
+    <h3>Buscar Usuario por ID</h3>
+    <input type="number" data-bind="value: userId, " placeholder="ID del usuario" />
+    <!-- valueUpdate: 'input' -->
+
+    <!--  solo se ejecute cuando el botón sea presionado, debemos envolverlo dentro de una función anónima: -->
+     <oj-button on-oj-action="[[function() { loadUserById(userId()) }]]">Buscar</oj-button>
+     <!-- bind($data, userId()) crea una nueva función que está vinculada al ViewModel y usa userId() como argumento.
+Cuando el botón es presionado, loadUserById se ejecuta con el valor de userId(). -->
+     <oj-button on-oj-action="[[loadUserById.bind($data, userId())]]">Buscar</oj-button>
+
+    <div data-bind="if: selectedUser">
+        <h3>Usuario Seleccionado:</h3>
+        <p data-bind="text: selectedUser() ? selectedUser().name : ''"></p>
+        <p data-bind="text: selectedUser() ? selectedUser().email : ''"></p>
+    </div>
+</div>
+
+<h3>CSS Dinamico</h3>
+<oj-button 
+data-bind="css: { 'ok': activeButton(), 'no': !activeButton() }"
+on-oj-action="[[toggleActiveButton]]">css me</oj-button>
+
 </section>
