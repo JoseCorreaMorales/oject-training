@@ -1,0 +1,20 @@
+.sticky-note {
+    min-width: 200px;
+    min-height: 200px;
+    background-color: #ffd700;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.sticky-note h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.sticky-notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,18 @@
+{
+    "name": "user-list",
+    "version": "1.0.0",
+    "jetVersion": ">=7.0.0",
+    "description": "Componente de lista de usuarios",
+    "properties": {
+        "users": {
+            "type": "Array",
+            "description": "Array de usuarios",
+            "writeback": true
+        },
+        "isOpen": {
+            "type": "boolean",
+            "description": "Estado de apertura de la lista",
+            "writeback": true
+        }
+    }
+}

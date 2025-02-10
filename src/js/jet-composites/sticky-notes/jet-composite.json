@@ -1,0 +1,13 @@
+{
+     "name": "sticky-notes",
+     "version": "1.0.0",
+     "jetVersion": ">=7.0.0",
+     "description": "Componente de notas adhesivas",
+     "properties": {
+          "notes": {
+               "type": "Array",
+               "description": "Array de notas con título y contenido",
+               "writeback": true
+          }
+     }
+}
