@@ -16,6 +16,11 @@ define(["knockout"], function (ko) {
                }
           };
 
+          // Verificar si es par
+          self.isEven = ko.computed(function() {
+               return self.count() % 2 === 0;
+          });
+
           // Métodos
           self.incrementar = function () {
                self.count(self.count() + 1);
@@ -33,7 +38,10 @@ define(["knockout"], function (ko) {
                if (event.property === "headerText") {
                     self.headerText(event.value);
                }
+
+               console.log(`Propiedad "${event.property}" cambió a:`, event.value);
           };
+
      }
 
      return CounterViewModel;

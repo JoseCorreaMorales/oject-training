@@ -3,6 +3,8 @@ require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout',
   'js/jet-composites/counter/loader',
   'js/jet-composites/sticky-notes/loader',
   'js/jet-composites/user-list/loader',
+  'js/jet-composites/task-list/loader',
+  'js/jet-composites/task-input/loader',
 ],
      function (ko, Bootstrap, $) {
     "use strict";
@@ -15,6 +17,13 @@ require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout',
       self.loadUsers = ko.observable(true);
       self.isUsersListOpen = ko.observable(false);
      
+      // Agregamos la lista de tareas
+      self.listaTareas = ko.observableArray([
+          { id: 1, titulo: "Tarea 1", completada: false },
+          { id: 2, titulo: "Tarea 2", completada: true },
+          { id: 3, titulo: "Tarea 3", completada: false }
+      ]);
+
       this.incrementar = () => {
         self.contador(self.contador() + 1);
         console.log(self.contador());

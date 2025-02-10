@@ -1,0 +1,13 @@
+{
+     "name": "task-list",
+     "version": "1.0.0",
+     "jetVersion": ">=7.0.0",
+     "description": "Componente de lista de tareas",
+     "properties": {
+          "tasks": {
+               "type": "Array",
+               "description": "Array de tareas",
+               "writeback": true
+          }
+     }
+}

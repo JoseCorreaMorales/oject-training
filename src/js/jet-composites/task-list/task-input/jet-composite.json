@@ -1,0 +1,13 @@
+{
+     "name": "task-input",
+     "version": "1.0.0",
+     "jetVersion": ">=7.0.0",
+     "description": "Input para agregar tareas",
+     "properties": {
+          "tasks": {
+               "type": "Array<string>",
+               "description": "Lista de tareas",
+               "writeback": true
+          }
+     }
+}

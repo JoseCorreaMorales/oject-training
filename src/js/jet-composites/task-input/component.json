@@ -1,0 +1,10 @@
+{
+  "name": "task-input",
+  "version": "1.0.0",
+  "jetVersion": "^9.0.0",
+  "properties": {
+    "onAddTask": {
+      "type": "function"
+    }
+  }
+} 
