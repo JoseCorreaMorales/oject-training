@@ -18,6 +18,7 @@ define([
                 titulo: tituloTarea,
                 completada: ko.observable(false)
             });
+            console.log("im a callback");
         };
 
         // Inicializar desde las propiedades del contexto

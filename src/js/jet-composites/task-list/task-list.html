@@ -5,8 +5,11 @@
     
     <div data-bind="foreach: tasks">
         <div class="task-item">
-            <input type="checkbox" data-bind="checked: $data.completada">
+            <div data-bind="css: { 'complete': $data.completada, 'incomple': !$data.completada }">
+            <input data-bind="checked: $data.completada" type="checkbox">
             <span data-bind="text: $data.titulo"></span>
+            <span data-bind="text: $data.completada"></span>
+            </div>
         </div>
     </div>
 </div>

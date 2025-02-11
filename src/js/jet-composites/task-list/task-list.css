@@ -1,0 +1,7 @@
+.complete {
+    text-decoration: line-through; 
+}
+
+.incomple {
+   text-decoration: underline; 
+}

@@ -1,6 +1,7 @@
 @import url('https://static.oracle.com/cdn/jet/v7.1.0/default/css/alta/oj-alta-min.css');
 @import url('js/jet-composites/sticky-notes/sticky-notes.css');
 @import url('js/jet-composites/user-list/user-list.css');
+@import url('js/jet-composites/task-list/task-list.css');
 
 body {
   padding: 20px;
