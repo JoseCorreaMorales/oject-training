@@ -1,5 +1,7 @@
 <div class="task-list-container">
-    <h3>Lista de Tareas</h3>
+    <h1>Components Communication</h1>
+    <div>
+        <h3>Lista de Tareas</h3>
     
     <task-input on-add-task="[[addNewTask]]"></task-input>
     
@@ -8,5 +10,6 @@
             <input type="checkbox" data-bind="checked: $data.completada">
             <span data-bind="text: $data.titulo"></span>
         </div>
+    </div>
     </div>
 </div>

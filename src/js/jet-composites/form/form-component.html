@@ -1,0 +1,75 @@
+<!-- Form -->
+<div class="form-container oj-flex">
+    <div>
+        <h3>Personal Info Form</h3>
+    <!-- name -->
+    <oj-label-value label-edge="start" label-width="140px">
+        <oj-label for="input" slot="label">Name
+        </oj-label>
+        <oj-input-text 
+            id="input" 
+            data-bind="value: nameInput,
+                      messagesCustom: showValidation() ? nameError : []" 
+            slot="value">
+        </oj-input-text>
+    </oj-label-value>
+    <small data-bind="nameInput.length <= 0">name is missing</small>
+    <!-- lastname -->
+    <oj-label-value label-edge="start" label-width="140px">
+        <oj-label for="input" slot="label">lastname
+        </oj-label>
+        <oj-input-text id="input" data-bind="value: lastnameInput" slot="value"></oj-input-text>
+    </oj-label-value>
+
+    <!-- Send button -->
+    <oj-button on-oj-action="[[formData]]">Send</oj-button>
+    </div>
+
+    <div>
+        <label for="selectedInfo">Current Selection:</label>
+            <br>
+    <textarea disabled="true" readonly="true" id="selectedInfo" style="height: 50px; width: 300px;"></textarea>
+    </div>
+    
+</div>
+
+<!-- Table -->
+<div>
+    <h3>Sample Table</h3>
+    <div>
+            
+      <oj-table id='table' aria-label='Departments Table'
+            data='[[dataprovider]]'
+            selected.row='{{selectedRows}}'
+            on-selected-changed="[[selectedChangedListener]]"
+            selection-mode='{"row": "multiple", "column": "multiple"}'
+            dnd='{"reorder": {"columns": "enabled"}}'
+            scroll-policy='loadMoreOnScroll'
+            scroll-policy-options='{"fetchSize": 10}'
+            columns='[{"headerText": "Department Id", 
+                        "field": "DepartmentId",
+                        "headerClassName": "oj-sm-only-hide",
+                        "className": "oj-sm-only-hide",
+                        "resizable": "enabled"},
+                        {"headerText": "Department Name", 
+                        "field": "DepartmentName",
+                        "resizable": "enabled"},
+                        {"headerText": "Location Id", 
+                        "field": "LocationId",
+                        "headerClassName": "oj-sm-only-hide",
+                        "className": "oj-sm-only-hide",
+                        "resizable": "enabled"},
+                        {"headerText": "Manager Id", 
+                        "field": "ManagerId",
+                        "resizable": "enabled"}]'
+            style='width: 100%; height: 26rem;'>
+      </oj-table>
+      
+      
+      
+      
+           
+
+
+    </div>
+  </div>

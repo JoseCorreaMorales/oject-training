@@ -10,24 +10,35 @@
 </head>
 
 <body>
-
+<section>
     <demo-counter count="5" header-text="Mi Contador"></demo-counter>
+</section>
 
+ 
+<!-- <section>
+    <sticky-notes notes="[{"title": "Nota 1", "content": "Contenido de la nota"}]"></sticky-notes>
+</section> -->
 
-
-    <sticky-notes notes='[{"title": "Nota 1", "content": "Contenido de la nota"}, 
-    {"title": "Nota 1", "content": "Contenido de la nota"}
-    ]'></sticky-notes>
-
-
+<section>
     <user-list></user-list>
+</section>
 
-<task-list tasks="[[listaTareas]]"></task-list>
+<section>
+    <task-list tasks="[[listaTareas]]"></task-list>
+</section>
 
+<section>
+    <form-component></form-component>
+</section>
 
-    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
-    <script src="index.js"></script>
+<!-- Update module binding -->
+<!-- <div id="routing-container">
+    <oj-module role="main" class="oj-web-applayout-max-width" config="[[moduleConfig]]">
+    </oj-module>
+</div> -->
+
+<script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+<script src="index.js"></script>
 
 </body>
-
 </html>

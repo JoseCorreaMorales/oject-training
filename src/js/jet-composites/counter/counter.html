@@ -1,22 +1,27 @@
 <div class="counter-container">
-     <h2 data-bind="text: headerText"></h2>
-     <p>Valor actual: <span data-bind="text: count"></span></p>
-     <oj-button on-oj-action="[[incrementar]]">Incrementar</oj-button>
-     <oj-button on-oj-action="[[decrementar]]">Decrementar</oj-button>
+     <div class="counter">
+          <h1>Data Binding / Conditional Rendering</h1>
+         <div>
+          <h2 data-bind="text: headerText"></h2>
+          <p>Valor actual: <span data-bind="text: count"></span></p>
+          <oj-button on-oj-action="[[decrementar]]">Decrementar</oj-button>
+          <oj-button on-oj-action="[[incrementar]]">Incrementar</oj-button>
 
-     <!-- verificar si es par o impar usando data-bind if -->
-    <!--  <p data-bind="if: isEven()" class="even-number">El número es par</p>
+          <!-- verificar si es par o impar usando data-bind if -->
+          <!--  <p data-bind="if: isEven()" class="even-number">El número es par</p>
      <p data-bind="if: !isEven()" class="odd-number">El número es impar</p> -->
 
-     
-     <!-- verificar si es par o impar usando oj-bind-if -->
-     <oj-bind-if test="[[isEven()]]">
-          <p class="even-number">El número es par</p>
-     </oj-bind-if>
-     
-     <oj-bind-if test="[[!isEven()]]">
-          <p class="odd-number">El número es impar</p>
-     </oj-bind-if>
+
+          <!-- verificar si es par o impar usando oj-bind-if -->
+          <oj-bind-if test="[[isEven()]]">
+               <p class="even-number">El número es par</p>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[!isEven()]]">
+               <p class="odd-number">El número es impar</p>
+          </oj-bind-if>
+         </div>
+     </div>
 
 
 </div>

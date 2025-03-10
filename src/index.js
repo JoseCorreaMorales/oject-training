@@ -5,13 +5,26 @@ require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout',
   'js/jet-composites/user-list/loader',
   'js/jet-composites/task-list/loader',
   'js/jet-composites/task-input/loader',
+  'js/jet-composites/form/loader',
+  'ojs/ojmodule-element',
+  'appController'
 ],
-     function (ko, Bootstrap, $) {
+     function (ko, Bootstrap, $, counter, sticky, userList, taskList, taskInput, form, ojModule, app) {
     "use strict";
   
     function IndexViewModel() {
-      self = this;
-      this.contador = ko.observable(5); // Variable reactiva
+      var self = this;
+
+      // Initialize the ViewModel
+      /* self.moduleConfig = ko.observable();
+      
+      // Get router instance from AppController
+      self.router = app.router;
+      
+      // Set moduleConfig from AppController
+      self.moduleConfig(app.moduleConfig()); */
+
+      self.contador = ko.observable(5); // Variable reactiva
       self.mensaje = ko.observable("Cargando...");
       self.usuarios = ko.observableArray([]);
       self.loadUsers = ko.observable(true);
@@ -56,27 +69,14 @@ require(['knockout', 'ojs/ojbootstrap', 'ojs/ojknockout',
         self.cargarUsuarios();
       };
 
+    }
 
+    Bootstrap.whenDocumentReady().then(function() {
+      ko.applyBindings(new IndexViewModel());
+    });
+});
 
-
-
-}
-ko.applyBindings(new IndexViewModel());
-
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
+// CDN configuration for loading JET components
   // CDN configuration for lading base JET libraries and resources
 function _getCDNPath(paths) {
   var cdnPath = "https://static.oracle.com/cdn/jet/"

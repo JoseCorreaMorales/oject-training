@@ -1,3 +1,18 @@
+.user-list-container {
+     padding: 1rem;
+}
+
+.user-list-title {
+     text-align:center;
+}
+.user-list {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     height: 100%;
+
+}
+
 .userPanel {
      border-radius: 35rem;
      padding: 1rem;
