@@ -1,9 +1,0 @@
-.form-container {
-    display: flex;
-    gap: 2rem;
-    padding: 1rem;
-}
-
-.form-container > div {
-    flex: 1;
-}
