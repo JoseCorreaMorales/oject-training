@@ -1,49 +1,196 @@
 body {
     margin: 20px;
     font-family: "Arial", "Helventica", sans-serif;
+    background-color: #272a2c;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+  }
+
+  .header-container {
+    display: flex;
+    column-gap: 4rem;
+    align-items: center;
+  }
+
+  .title {
+    background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .container {
+    display: grid;
+    place-items: center;
   }
   
-  button {
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 1.3em .5em;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    -webkit-border-radius: .5em; 
-    -moz-border-radius: .5em;
-    border-radius: .5em;
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-    box-shadow: 0 1px 2px rgba(0,0,0,.2);
   
-    color: #fef4e9;
-    border: solid 1px #4b84ad;
-    background: #47d3ef;
-    background: -webkit-gradient(linear, left top, left bottom, from(#47d3ef), to(#438dd8));
-    background: -moz-linear-gradient(top,  #47d3ef,  #438dd8);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+  .buttons-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  button:hover {
-    text-decoration: none;
-    background: #0d6f8172;
-    background: -47d3ef-gradient(linear, left top, left bottom, from(#438dd8), to(#438dd8));
-    background: -moz-linear-gradient(top,  #47d3ef,  #438dd8);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#438dd8', endColorstr='#438dd8');
-  }
-  button:active {
-    position: relative;
-    top: 1px;
-    color: #0d6f8172;
-    background: -webkit-gradient(linear, left top, left bottom, from(#47d3ef), to(#faa51a));
-    background: -moz-linear-gradient(top,  #47d3ef,  #faa51a);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#47d3ef', endColorstr='#faa51a');
-  }
+
+.button {
+  background: var(--color-back);
+  border-radius: 0.5em;
+  box-shadow:
+    inset 0px -6px 18px -6px rgba(3, 15, 20, 0),
+    inset rgba(54, 69, 75, 1) -1px -1px 6px 0px,
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+    rgba(54, 69, 75, 1) -1px -1px 6px 0px;
+  border: solid 2px #030f14;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0.5em 1.5em;
+  outline: none;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.button:hover {
+  box-shadow:
+    inset 0px -6px 18px -6px rgba(3, 15, 20, 1),
+    inset 0px 6px 18px -6px rgba(3, 15, 20, 1),
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+    -1px -1px 6px 0px rgba(54, 69, 75, 1);
+}
+
+.button:active {
+  box-shadow:
+    inset 0px -12px 12px -6px rgba(3, 15, 20, 1),
+    inset 0px 12px 12px -6px rgba(3, 15, 20, 1),
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 1),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 1),
+    -1px -1px 6px 0px rgba(54, 69, 75, 1);
+}
+
+.text {
+  color: #d0a756;
+  font-weight: 700;
+  margin: auto;
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.button:hover .text {
+  transform: scale(0.9);
+}
+
+.button:active .text {
+  transform: scale(0.8);
+}
+
+
+/* From Uiverse.io by aaronross1 */ 
+.delete-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.delete-svgIcon {
+  width: 15px;
+  transition-duration: 0.3s;
+}
+
+.delete-svgIcon path {
+  fill: white;
+}
+
+.delete-button:hover {
+  width: 90px;
+  border-radius: 50px;
+  transition-duration: 0.5s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.delete-button:hover .delete-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.delete-button::before {
+  display: none;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.delete-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+/* tags */
+.tag__name {
+  display: inline-block;
+  color: #fff;
+  font-size: .75em;
+  background-color: #c0afd5;
+  text-shadow: 1px 1px #4e4f51;
+  padding: 5px 12px 5px;
+  border-radius: 70em;
+  margin: 8px 6px 8px 0;
+  margin-left: 0px;
+  position: relative;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+
+.tag__name::before {
+  left: 7px;
+}
+
+.tag__name::after {
+  right: 7px;
+}
+
+.tag__name:hover {
+  transform: scale(1.1);
+  background-color: #9c87c0;
+}
+
+
   
   table {
     padding-top: 1em;
+    overflow: scroll;
+  }
+  .discount-header {
+    border-bottom: dotted 3px #d0a756;
+    
   }
   
   th {
