@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    font-family: "Arial", "Helventica", sans-serif;
+    background-color: #272a2c;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .header-container {
+    display: flex;
+    column-gap: 4rem;
+    align-items: center;
+  }
+
+  .featuredProduct {
+    border: 3px dotted #d0a756;
+    padding: .5rem;
+    margin-bottom: 1.4rem;
+  } 
+
+  .title {
+    background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .container {
+    display: grid;
+    place-items: center;
+   
+  }
+  
+  
+  .buttons-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.button {
+  background: var(--color-back);
+  border-radius: 0.5em;
+  box-shadow:
+    inset 0px -6px 18px -6px rgba(3, 15, 20, 0),
+    inset rgba(54, 69, 75, 1) -1px -1px 6px 0px,
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+    rgba(54, 69, 75, 1) -1px -1px 6px 0px;
+  border: solid 2px #030f14;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0.5em 1.5em;
+  outline: none;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.button:hover {
+  box-shadow:
+    inset 0px -6px 18px -6px rgba(3, 15, 20, 1),
+    inset 0px 6px 18px -6px rgba(3, 15, 20, 1),
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+    -1px -1px 6px 0px rgba(54, 69, 75, 1);
+}
+
+.button:active {
+  box-shadow:
+    inset 0px -12px 12px -6px rgba(3, 15, 20, 1),
+    inset 0px 12px 12px -6px rgba(3, 15, 20, 1),
+    inset 12px 0px 12px -6px rgba(3, 15, 20, 1),
+    inset -12px 0px 12px -6px rgba(3, 15, 20, 1),
+    -1px -1px 6px 0px rgba(54, 69, 75, 1);
+}
+
+.text {
+  color: #d0a756;
+  font-weight: 700;
+  margin: auto;
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.button:hover .text {
+  transform: scale(0.9);
+}
+
+.button:active .text {
+  transform: scale(0.8);
+}
+
+
+/* From Uiverse.io by aaronross1 */ 
+.delete-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.delete-svgIcon {
+  width: 15px;
+  transition-duration: 0.3s;
+}
+
+.delete-svgIcon path {
+  fill: white;
+}
+
+.delete-button:hover {
+  width: 90px;
+  border-radius: 50px;
+  transition-duration: 0.5s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.delete-button:hover .delete-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.delete-button::before {
+  display: none;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.delete-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+/* tags */
+.tag__name {
+  display: inline-block;
+  color: #fff;
+  font-size: .75em;
+  background-color: #c0afd5;
+  text-shadow: 1px 1px #4e4f51;
+  padding: 5px 12px 5px;
+  border-radius: 70em;
+  margin: 8px 6px 8px 0;
+  margin-left: 0px;
+  position: relative;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+
+.tag__name::before {
+  left: 7px;
+}
+
+.tag__name::after {
+  right: 7px;
+}
+
+.tag__name:hover {
+  transform: scale(1.1);
+  background-color: #9c87c0;
+}
+
+
+  
+  table {
+    padding-top: 1em;
+    overflow: scroll;
+  }
+  .discount-header {
+    border-bottom: dotted 3px #d0a756;
+    
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  th, td {
+    padding: .1em .5em;
+  }
+  
+  td li, td ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  td li {
+    display: inline;
+  }
+  
+  td li::after {
+    content: ',';
+  }
+  
+  td li:last-child::after {
+    content: '';
+  }
+  
+  .supersaver {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: underline;
+    background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
+    text-align: center;
+    border-radius: 2rem;
+  }
+
+  footer {
+    width: 100%;
+    background: linear-gradient(45deg, #4e2020, #713030, #272a2c);
+    height: 1.2rem;
+   margin-top: 5rem;
+   text-align: center;
+   padding: 1rem;
+  }

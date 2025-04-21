@@ -7,14 +7,15 @@
 <link type="image/svg+xml" href="/favicon.svg" rel="icon">
 <link href="./favicon/favicon.ico" rel="shortcut icon">
 <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-<link href="/site.webmanifest" rel="manifest">
-    <link href="./style.css" rel="stylesheet">
-    <link href="./credit_card.css" rel="stylesheet">
+<link href="./favicon/site.webmanifest" rel="manifest">
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/credit_card.css" rel="stylesheet">
     <script src="knockout-2.1.0.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>hello, Knockout.js</title>
 </head>
 <body>
+
 
 <section class="container">
     <!-- card section -->
@@ -84,7 +85,7 @@
                     <div class="strip"></div>
                     <div class="mstrip"></div>
                     <div class="sstrip">
-                      <p class="code">***</p>
+                        <p class="code">***</p>
                     </div>
                 </div>
             </div>
@@ -93,14 +94,25 @@
 
     </div>
 
+    
     <p>Hello, 
         <span data-bind="text: firstName"></span>
         <span data-bind="text: lastName"></span>
         Fullname: <span data-bind="text: fullName"></span>
     </p>
 
+    <!-- with block -->
+    <div class="featuredProduct">
+        <p data-bind="with: featuredProduct">
+            Do you need 
+            <span data-bind="html: formattedFeaturedProductName"></span>
+            ?<br>
+            Get one now for only <strong data-bind="text: precio"></strong>$
+        </p> 
+        <!-- Fuera del contexto -->
+           <!--  <span data-bind='html: featuredProduct().formattedName'></span> -->
+    </div>
 
-<!-- From Uiverse.io by SupportHotline --> 
 <div class="buttons-container">
     <button class="button" data-bind="click: checkout">
         <div class="text">Checkout</div>
@@ -120,7 +132,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Tags</th>
-            <td class="discount-header">Discount</td>
+            <td class="discount-header" >Discount</td>
         </thead>
             
         <tbody data-bind="foreach: shoppingCard">
@@ -133,19 +145,25 @@
                     <ul data-bind="foreach: tags">
                         <!-- <li data-bind="text: $data"></li> -->
                         <li>
-                            <span class="tag__name" data-bind="text: $parent.nombre"></span>
+                            <span class="tag__name"
+                            
+                            data-bind="text: $parent.nombre,
+                            attr: {title : $data}
+                            "></span>
                             -
                             <span data-bind="text: $data"></span>
                         </li>
                     </ul>
                 </td>
                 <td>
-                    <div data-bind="if: discount() > 0">
-                        <span data-bind="text: formattedDiscount">saved</span>
-                        
-                        
+                    <div data-bind="if: discount() > 0, css: {supersaver: discount() > .15 }">
+                        <span data-bind="text: formattedDiscount">saved</span>                                            
                     </div>
-                    <span data-bind="ifnot: discount">No discount</span>
+                    <!-- <span data-bind="ifnot: discount">No discount</span> -->
+                    <span data-bind="visible: discount() == null, 
+                    style: { fontWeight: discount() == null ? 'bold' : 'normal' }">
+                    No discount
+                </span>
                 </td>
                 <td>
                     <!-- <button data-bind="click: $root.removeProduct">Delete</button> -->
@@ -153,7 +171,7 @@
                         <svg class="delete-svgIcon" viewBox="0 0 448 512">
                         <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
                         </svg>
-                      </button>
+                    </button>
                 </td>
 
             </tr>
@@ -164,11 +182,13 @@
     <div class="divider"></div>    
 
 </section>
+<footer>knockout-2.1.0</footer>
+
 
 
     <!-- Modelo -->
     <script type="text/javascript">
-        function Product(nombre, precio, tags, discount) {
+        function Product(nombre, precio, tags, discount, ) {
             this.nombre = ko.observable(nombre)
             this.precio = ko.observable(precio)   
             tags = typeof(tags) !== 'undefined' ? tags : []
@@ -177,6 +197,11 @@
             this.discount = ko.observable(discount)
 
             this.formattedDiscount = ko.computed(() => { return (this.discount() * 100) + "%"; }, this)
+
+
+            // HTML binding
+            this.formattedFeaturedProductName = ko.computed(function() {return "<strong>" + this.nombre() +"🥤"+ "</strong>";}, this);
+          
         }
 
 
@@ -200,7 +225,7 @@
             ])
 
             this.addProduct = function() {
-                this.shoppingCard.push(new Product("Beer", 7.99));
+                this.shoppingCard.push(new Product("Beer", 7.99, null, null));
             }
 
             self.removeProduct = function(product) {
@@ -228,6 +253,10 @@
             }, this);
 
 
+            let featured = new Product("Coca-Cola",10, ["Hot Dogs", "Burrito"], .20)
+            this.featuredProduct = ko.observable(featured);
+
+            
         }
 
         let personViewModel = new PersonViewModel();
