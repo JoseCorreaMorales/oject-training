@@ -10,6 +10,186 @@
   font-size: .9rem;
 }
 
+.annoyMe {
+  color: #000;
+  margin-right: 1rem;
+}
+
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ios-checkbox {
+  --checkbox-size: 28px;
+  --checkbox-color: #3b82f6;
+  --checkbox-bg: #dbeafe;
+  --checkbox-border: #93c5fd;
+
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ios-checkbox input {
+  display: none;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.checkbox-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 2px solid var(--checkbox-border);
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.checkbox-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  color: white;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+.check-path {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  transition: stroke-dashoffset 0.3s ease 0.1s;
+}
+
+/* Checked State */
+.ios-checkbox input:checked + .checkbox-wrapper .checkbox-bg {
+  background: var(--checkbox-color);
+  border-color: var(--checkbox-color);
+}
+
+.ios-checkbox input:checked + .checkbox-wrapper .checkbox-icon {
+  transform: scale(1);
+}
+
+.ios-checkbox input:checked + .checkbox-wrapper .check-path {
+  stroke-dashoffset: 0;
+}
+
+/* Hover Effects */
+.ios-checkbox:hover .checkbox-wrapper {
+  transform: scale(1.05);
+}
+
+/* Active Animation */
+.ios-checkbox:active .checkbox-wrapper {
+  transform: scale(0.95);
+}
+
+/* Focus Styles */
+.ios-checkbox input:focus + .checkbox-wrapper .checkbox-bg {
+  box-shadow: 0 0 0 4px var(--checkbox-bg);
+}
+
+/* Color Themes */
+.ios-checkbox.morning { /* morning */
+  --checkbox-color: #e5b75d;
+  --checkbox-bg: #c1a876;
+  --checkbox-border: #b79c66;
+}
+
+.ios-checkbox.evening { /*  evening */
+  --checkbox-color: #10b981;
+  --checkbox-bg: #d1fae5;
+  --checkbox-border: #6ee7b7;
+}
+
+
+
+.ios-checkbox.nigth { /* nigth */
+  --checkbox-color: #292e83;
+  --checkbox-bg: #393c6e;
+  --checkbox-border: #4a50c5;
+}
+
+/* Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.ios-checkbox input:checked + .checkbox-wrapper {
+  animation: bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.checkbox-wrapper input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper *,
+  .checkbox-wrapper ::after,
+  .checkbox-wrapper ::before {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.checkbox-wrapper .label {
+  cursor: pointer;
+}
+
+.checkbox-wrapper .check {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox-wrapper .label svg {
+  vertical-align: middle;
+}
+
+.checkbox-wrapper .path1 {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: .5s stroke-dashoffset;
+  opacity: 0;
+}
+
+.checkbox-wrapper .check:checked + label svg g path {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
 .news_letter {
     width: 320px;
     padding: 30px;
