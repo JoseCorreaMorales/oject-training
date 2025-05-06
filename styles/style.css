@@ -1,54 +1,52 @@
 body {
-    margin: 0;
-    font-family: "Arial", "Helventica", sans-serif;
-    background-color: #272a2c;
-    color: white;
-    font-family: 'Poppins';
-    font-size: 1.2rem;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
+  margin: 0;
+  font-family: "Arial", "Helventica", sans-serif;
+  background-color: #272a2c;
+  color: white;
+  font-family: "Poppins";
+  font-size: 1.2rem;
+  /*  overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
 
-  .header-container {
-    display: flex;
-    column-gap: 4rem;
-    align-items: center;
-  }
+.header-container {
+  display: flex;
+  column-gap: 4rem;
+  align-items: center;
+}
 
-  .featuredProduct {
-    border: 3px dotted #d0a756;
-    padding: .5rem;
-    margin-bottom: 1.4rem;
-    margin-top: 2.6rem;
-  } 
+.featuredProduct {
+  border: 3px dotted #d0a756;
+  padding: 0.5rem;
+  margin-bottom: 1.4rem;
+  margin-top: 2.6rem;
+}
 
-  .title {
-    background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
+.title {
+  background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 
-  .container {
-    display: grid;
-    place-items: center;
-  }
-  
-  
-  .buttons-container{
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .button {
   background: var(--color-back);
   border-radius: 0.5em;
-  box-shadow:
-    inset 0px -6px 18px -6px rgba(3, 15, 20, 0),
+  box-shadow: inset 0px -6px 18px -6px rgba(3, 15, 20, 0),
     inset rgba(54, 69, 75, 1) -1px -1px 6px 0px,
     inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
     inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
@@ -63,8 +61,7 @@ body {
 }
 
 .button:hover {
-  box-shadow:
-    inset 0px -6px 18px -6px rgba(3, 15, 20, 1),
+  box-shadow: inset 0px -6px 18px -6px rgba(3, 15, 20, 1),
     inset 0px 6px 18px -6px rgba(3, 15, 20, 1),
     inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
     inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
@@ -72,8 +69,7 @@ body {
 }
 
 .button:active {
-  box-shadow:
-    inset 0px -12px 12px -6px rgba(3, 15, 20, 1),
+  box-shadow: inset 0px -12px 12px -6px rgba(3, 15, 20, 1),
     inset 0px 12px 12px -6px rgba(3, 15, 20, 1),
     inset 12px 0px 12px -6px rgba(3, 15, 20, 1),
     inset -12px 0px 12px -6px rgba(3, 15, 20, 1),
@@ -96,8 +92,6 @@ body {
   transform: scale(0.8);
 }
 
-
-/* From login-form-button.io by aaronross1 */ 
 .delete-button {
   width: 40px;
   height: 40px;
@@ -164,7 +158,7 @@ body {
 .tag__name {
   display: inline-block;
   color: #fff;
-  font-size: .75em;
+  font-size: 0.75em;
   background-color: #c0afd5;
   text-shadow: 1px 1px #4e4f51;
   padding: 5px 12px 5px;
@@ -174,9 +168,8 @@ body {
   position: relative;
   text-transform: lowercase;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-
 
 .tag__name::before {
   left: 7px;
@@ -191,105 +184,153 @@ body {
   background-color: #9c87c0;
 }
 
+table {
+  padding-top: 1em;
+  overflow: scroll;
+}
+.discount-header {
+  border-bottom: dotted 3px #d0a756;
+}
 
-  
-  table {
-    padding-top: 1em;
-    overflow: scroll;
-  }
-  .discount-header {
-    border-bottom: dotted 3px #d0a756;
-    
-  }
-  
-  th {
-    text-align: left;
-  }
-  
-  th, td {
-    padding: .1em .5em;
-  }
-  
-  td li, td ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  td li {
-    display: inline;
-  }
-  
-  td li::after {
-    content: ',';
-  }
-  
-  td li:last-child::after {
-    content: '';
-  }
-  
-  .supersaver {
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: underline;
-    background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
-    text-align: center;
-    border-radius: 2rem;
-  }
+th {
+  text-align: left;
+}
 
-  footer {
-    width: 100%;
-    background: linear-gradient(45deg, #4e2020, #713030, #272a2c);
-    height: 1.2rem;
-   margin-top: 5rem;
-   text-align: center;
-   padding: 1rem;
-  }
+th,
+td {
+  padding: 0.1em 0.5em;
+}
+
+td li,
+td ul {
+  margin: 0;
+  padding: 0;
+}
+
+td li {
+  display: inline;
+}
+
+td li::after {
+  content: ",";
+}
+
+td li:last-child::after {
+  content: "";
+}
+
+.supersaver {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: underline;
+  background: linear-gradient(45deg, #d0a756, #ff6b6b, #4ecdc4);
+  text-align: center;
+  border-radius: 2rem;
+  padding: 0 1rem;
+}
+
+footer {
+  
+  background: linear-gradient(45deg, #4e2020, #713030, #272a2c);
+  height: 1.2rem;
+  margin-top: 5rem;
+  text-align: center;
+  padding: 1.2rem 0;
+  
+}
 
 .modal {
-    padding: 2em;
-    min-width: 35vw;
-    max-width: 50ch;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0 1em rgb(0 0 0 / .3);
-    background-color: #272a2c;
-    color: white;
+  padding: 2em;
+  min-width: 35vw;
+  max-width: 50ch;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+  background-color: #272a2c;
+  color: white;
 }
 
 .modal::backdrop {
-    background: rgb(0 0 0 / 0.4);
-    backdrop-filter: blur(4px);
+  background: rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(4px);
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .login-input {
-    padding: 0.8em;
-    border-radius: 4px;
-    border: 1px solid #4e4f51;
-    background: #1a1c1e;
-    color: white;
-    font-family: 'Poppins';
+  padding: 0.8em;
+  border-radius: 4px;
+  border: 1px solid #4e4f51;
+  background: #1a1c1e;
+  color: white;
+  font-family: "Poppins";
 }
 
 .login-input:focus {
-    outline: none;
-    border-color: #d0a756;
+  outline: none;
+  border-color: #d0a756;
+}
+
+select.login-input {
+  padding: 0.8em;
+  border-radius: 4px;
+  border: 1px solid #4e4f51;
+  background: #1a1c1e;
+  color: #d0a756;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+select.login-input option {
+  background: #1a1c1e;
+  color: white;
+  padding: 10px;
+}
+
+select.login-input:focus {
+  outline: none;
+  border-color: #d0a756;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: .5rem 2rem; 
+  margin: 0.5rem 2rem;
 }
 
 .brand-title {
- letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
+/* Improve contrast ratios */
+.tag__name {
+  color: #000000;
+}
+
+.delete-button {
+  background: #dc3545;
+  color: white;
+}
+
+.login-form-button {
+  background: #0056b3;
+  color: white;
+}

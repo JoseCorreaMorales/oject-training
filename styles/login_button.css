@@ -1,5 +1,5 @@
 .login-form-button {
-    --duration: 7s;
+    --duration: 5s;
     --easing: linear;
     --c-color-1: rgba(255, 163, 26, 0.7);
     --c-color-2: #1a23ff;
@@ -55,7 +55,7 @@
     overflow: hidden;
     border-radius: 24px;
     min-width: 132px;
-    padding: 12px 0;
+    padding: 12px 1rem;
   }
   
   .login-form-button .wrapper span {
