@@ -6,7 +6,7 @@
 }
 
 .error {
-  color: red;
+  color: #dc3545;
   font-size: .9rem;
 }
 
@@ -359,7 +359,7 @@
     transform: translateY(0);
     box-shadow: none;
   }
-  @keyframes shake {
+ /*  @keyframes shake {
     0% {
       transform: translateX(0);
     }
@@ -375,4 +375,4 @@
     100% {
       transform: translateX(0);
     }
-  }
+  } */

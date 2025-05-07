@@ -34,6 +34,8 @@ body {
 .container {
   display: grid;
   place-items: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .buttons-container {
@@ -333,4 +335,61 @@ select.login-input:focus {
 .login-form-button {
   background: #0056b3;
   color: white;
+}
+@media screen and (max-width: 768px) {
+  table.responsive-table {
+      border: 0;
+      width: 100%;
+  }
+  
+  table.responsive-table thead {
+      display: none; /* Hide table header on mobile */
+  }
+  
+  table.responsive-table tr {
+      margin-bottom: 20px;
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  table.responsive-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: right;
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+  }
+  
+  table.responsive-table td:last-child {
+      border-bottom: 0;
+  }
+  
+  table.responsive-table td:before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-align: left;
+      width: 40%;
+      margin-right: 10px;
+  }
+  
+  /* delete button*/
+  table.responsive-table td.actions-cell {
+      justify-content: flex-end;
+  }
+  
+  table.responsive-table td.actions-cell:before {
+      content: '';
+      width: 0;
+  }
+  
+  /* cell */
+  table.responsive-table td.tags-cell ul {
+      margin: 0;
+      padding: 0;
+      text-align: right;
+  }
 }
