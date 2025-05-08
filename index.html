@@ -17,7 +17,7 @@
     <meta property="og:description" content="Interactive examples of Knockout.js features including observables, data binding, and Rick and Morty API integration">
          
     <!-- Theme Color for Browser -->
-    <meta name="theme-color" content="#9ee5fa">
+    <meta name="theme-color" content="#d0a756">
     <!-- Fav Icon -->
     <link type="image/png" href="/favicon-96x96.png" rel="icon" sizes="96x96">
     <link type="image/svg+xml" href="/favicon.svg" rel="icon">
@@ -36,9 +36,12 @@
     <!-- Jquery -->
     <script src="./jquery-1.7.min.js"></script>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <!-- UnoCSS -->
     <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+
+    
     <title>hello, Knockout.js</title>
 </head>
 
@@ -191,7 +194,7 @@
         <!-- Login Modal -->
         <dialog id="loginDialog" class="modal">
             <h2>Login</h2>
-            <form class="login-form" data-bind>
+            <form class="login-form" >
                 <input class="login-input"
                     data-bind="value: username, event: {mouseenter: showDetailsEvent, mouseout: hideDetailsEvent}"
                     type="text" placeholder="Username">
@@ -225,7 +228,7 @@
             <span class="news_letter__title">Knockout.js</span>
             <p class="news_letter__subtitle">Stay up tu date with our latest news, <s>worst</s> best practices and
                 updates of Knockout.js!</p>
-            <form class="news_letter__form">
+            <form data-bind="submit: sendNewsLetterInfo" class="news_letter__form">
                 <!-- <label for="topics">What topics interest you?</label>
                 <select id="topics" multiple size="4"
                 data-bind="options: availableTopics,
@@ -235,11 +238,12 @@
                 </select>
                 <small data-bind="visible: selectedTopics().length === 0" class="error">Please choose at least one topic</small> -->
 
-                <input data-bind="value: newsLetterName, hasfocus: newsLetterNameHasFocus" type="text" placeholder="Your Name" required>
-                <small class="error" data-bind="visible: newsLetterName().length === 0">Write your name please
-                    buddy</small>
-                <input data-bind="value: newsLetterEmail, enable: newsLetterName().length > 0" type="email"
-                    placeholder="Your Email" required>
+                <!--hasFocus has issues with LigthHouse <input data-bind="value: newsLetterName, hasfocus: newsLetterNameHasFocus" type="text" placeholder="Your Name" required> -->
+                <input data-bind="value: newsLetterName" type="text" placeholder="Your Name" required>                
+                <small class="error" data-bind="visible: newsLetterName().length > 0 && !isNameValid()">Please enter a valid name (at least 2 characters)</small>
+                
+                <input data-bind="value: newsLetterEmail, enable: newsLetterName().length > 0" type="email" autocomplete="true" placeholder="Your Email" required>
+                <small class="error" data-bind="visible: newsLetterEmail().length > 0 && !isEmailValid()"> Please enter a valid email address </small>
 
                 <div class="checkbox-wrapper">
                     <input id="check1-61" class="check" data-bind="checked: annoyMe" type="checkbox" checked>
@@ -271,7 +275,7 @@
                             </div>
                         </label>
 
-                        <label class="ios-checkbox nigth">
+                        <label class="ios-checkbox nigth"> 
                             <input data-bind="checked: annoyTimes" type="radio" value="night">
                             <div class="checkbox-wrapper">
                                 <div class="checkbox-bg"></div>
@@ -283,7 +287,7 @@
                 </div>
 
                 <button class="sign-up" data-bind="enable: isValidNewsLetterForm">Subscribe</button>
-                <small class="error" data-bind="if: !isValidNewsLetterForm()">Complete all the form fields</small>
+                <small class="error" data-bind="if: !isValidNewsLetterForm()">Please complete all required fields correctly</small>
             </form>
         </div>
     </div>
@@ -314,6 +318,7 @@
     <div class="card">
         <div class="card-img">
             <div class="img">
+                <span data-bind="if: !image">no image</span>
                 <img  data-bind="attr: {src : image}">
             </div>
         </div>
@@ -330,7 +335,7 @@
 
 <!-- Pagination -->
 <div data-bind="visible: showPagination" class="flex justify-center items-center gap-4 mt-4">
-    <button data-bind="click: () => paginateCharacters('prev')" class="rounded-xl bg-white/0 border-none hover:bg-white/5 p-3" aria-label="Load previous page of characters">
+    <button data-bind="click: () => paginateCharacters('prev'), css: { 'bg-white/10': pageCounter() <= 1 }" class="rounded-xl bg-white/0 border-none hover:bg-white/5 px-3 py-2" aria-label="Load previous page of characters">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66 43" height="30px" width="30px" aria-hidden="true">
             <g fill-rule="evenodd" fill="none" stroke-width="1" stroke="none" id="arrow" transform="scale(-1,1) translate(-66,0)">
               <path fill="#d0a756" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" id="arrow-icon-one"></path>
@@ -340,7 +345,7 @@
         </svg>
     </button>
     
-    <button data-bind="click: () => paginateCharacters('next')" class="rounded-xl bg-white/0 border-none hover:bg-white/5 p-3" aria-label="Load next page of characters">
+    <button data-bind="click: () => paginateCharacters('next')" class="rounded-xl bg-white/0 border-none hover:bg-white/5 px-3 py-2" aria-label="Load next page of characters">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66 43" height="30px" width="30px" aria-hidden="true" >
             <g fill-rule="evenodd" fill="none" stroke-width="1" stroke="none" id="arrow" >
               <path fill="#d0a756" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" id="arrow-icon-one"></path>
@@ -388,7 +393,7 @@
             this.creditCardName = ko.computed(() => { return this.username() || "BRUCE WAYNE" }, this)
             this.newsLetterName = ko.observable("")
             this.newsLetterEmail = ko.observable("")
-            this.newsLetterNameHasFocus = ko.observable(true)
+            this.newsLetterNameHasFocus = ko.observable(true) 
             this.annoyMe = ko.observable(false)
             this.annoyTimes = ko.observableArray(['morning', 'evening', 'night']);
 
@@ -475,19 +480,45 @@
             this.showDetailsEvent = (target, event) => this.showDetailsFlag(true)
             this.hideDetailsEvent = (target, event) => this.showDetailsFlag(false)
 
-            this.isValidNewsLetterForm = ko.computed(function () {
+
+            // Forms name validation
+            this.isNameValid = ko.computed(() => {
                 const name = this.newsLetterName();
-                const email = this.newsLetterEmail();
-                const hasTopics = this.selectedTopics().length > 0
-                // Check if values exist and aren't empty
-                if (!name || !email) return false;
-
-                // Basic email regex validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                return name.length > 0 && email.length > 0 && emailRegex.test(email) && this.annoyMe()
+                return name && name.trim().length >= 2;
             }, this);
 
+            // Email form validation
+            this.isEmailValid = ko.computed(() => {
+                const email = this.newsLetterEmail();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return email && emailRegex.test(email);
+            }, this);
+
+            // All form fields validation
+            this.isValidNewsLetterForm = ko.computed(() => {
+                return this.isNameValid() && 
+                    this.isEmailValid() && 
+                    this.annoyMe() &&
+                    this.annoyTimes().length > 0;
+            }, this);
+
+            // Send news letter form info
+            this.sendNewsLetterInfo = (formElement) => {
+                console.log("Form Elements", formElement)
+                if (!this.isValidNewsLetterForm()) return;
+                 
+                console.log("Submitting form with:", {
+                 name: this.newsLetterName(), 
+                 email: this.newsLetterEmail(), 
+                 notifications: this.annoyMe(),
+                 time: this.annoyTimes() });
+                alert("Thank you for subscribing!");
+                
+                this.resetNewsletterForm();
+            }
+
+            // Clear all form fields            
+            this.resetNewsletterForm = () => { this.newsLetterName(""); this.newsLetterEmail(""); this.annoyMe(false); this.annoyTimes([]); }            
 
             this.pageCounter = ko.observable(1)
             const CHARACTES_URL = "https://rickandmortyapi.com/api/character/";
@@ -524,13 +555,12 @@
             // Check buttons animation
             ko.bindingHandlers.visibleFade = {
                 init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-                    var value = valueAccessor();
-                    /* $(element).hide().fadeIn(); */
+                    let value = valueAccessor();
                     $(element).toggle(value());
                 },
 
                 update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-                    var value = valueAccessor();
+                    let value = valueAccessor();
                     value() ? $(element).fadeIn() : $(element).fadeOut();
                 }                                            
             }

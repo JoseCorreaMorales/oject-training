@@ -9,6 +9,34 @@ body {
   scroll-behavior: smooth;
 }
 
+select, ::picker(select) {
+    appearance: base-select;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+select::picker-icon {
+  content: "🍔";
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  transition: transform 0.3s ease;
+}
+
+select:open::picker-icon {
+  transform: rotate(180deg);
+}
+option:checked::checkmark {
+  content: "🍺";
+  margin-right: 0.5em;
+  color: green;
+}
+
+
 .header-container {
   display: flex;
   column-gap: 4rem;
